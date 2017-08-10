@@ -1,0 +1,23 @@
+.quiz
+	for questionItem, i in quiz
+		.question(id= "q"+i)
+			.title!= questionItem.questionTitle
+			.dek!= questionItem.questionDek
+			.holder
+				for answer, index in questionItem.answers
+					.response(class=index == questionItem.correctAnswer ? "is-correct" : "is-incorrect", class= "r"+i)
+						.button-txt!= answer
+			.feedback(id= "f"+i)
+				.response
+					span.correct-incorrect
+				.media
+					if questionItem.responseImageURL
+						img.response-gif(src=questionItem.responseImageURL, width="100%")
+					if questionItem.responseYouTubeID
+						iframe(src="https://www.youtube.com/embed/"+questionItem.responseYouTubeID, frameborder="0", allowfullscreen="allowfullscreen")
+				if questionItem.responseImageSourceURL
+					.credit
+						a(href=questionItem.responseImageSourceURL)
+							if questionItem.responseImageSource
+								p!= questionItem.responseImageSource
+#results

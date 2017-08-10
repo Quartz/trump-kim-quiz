@@ -1,0 +1,146 @@
+// Interactive-specific css here
+#interactive-content
+	font-family $qz-font-body
+	color $qz-body-black
+	font-size 20px
+	line-height 30px
+
+	@media screen and (max-width 516px)
+		font-size 17px
+		line-height 27px
+
+.quiz
+	max-width 640px
+	margin 0 auto
+	-webkit-font-smoothing antialiased
+
+	a
+		color rgb(22, 141, 217)
+		font-stretch normal
+		font-style normal
+		font-variant normal
+		font-weight normal
+		text-decoration none
+
+.quiz-bold
+	font-family $qz-sans-bold
+
+.question
+	padding 25px 0 25px 0
+	border-bottom 1px solid #ddd
+
+	.title
+		-webkit-font-smoothing antialiased
+		color rgb(51, 51, 51)
+		display block
+		font 22px/32px $qz-sans-bold
+		font-stretch normal
+		font-style normal
+		font-variant normal
+		font-weight normal
+		line-height 32px
+		text-align center
+		vertical-align baseline
+		word-wrap break-word
+
+	.dek
+		text-align center
+
+	.holder
+		.response
+			box-sizing border-box
+			color #666
+			font-family $qz-sans
+			padding 5px
+			margin 10px auto
+			border 2px solid #666
+			text-align center
+			cursor pointer
+			width 80%
+			border-radius 3px
+			transition 0.5s all
+
+		.response-correct
+			background-color $qz-blue-1
+			color #fff
+
+		// .response-incorrect
+			// background-color $qz-purp-3
+			// color #fff
+
+	.feedback
+		opacity 0
+		display none
+		min-height 100px
+		text-align center
+
+		.response
+			.text-correct
+				color $qz-blue-1
+				font-family $qz-sans-bold
+
+			.text-incorrect
+				color $qz-purp-3
+				font-family $qz-sans-bold
+
+
+		.credit
+			width 100%
+			opacity 0
+			font-family $qz-sans-bold
+			color #666
+			text-align left
+
+			a
+				color #666
+				text-decoration none
+
+		.response-gif
+			width 100%
+			margin 10px 0 10px 0
+
+#results
+	max-width 640px
+	margin 0 auto
+	padding 20px
+	min-height 200px
+	text-align center
+
+	.sources
+		font-family $qz-sans
+		color #666
+		text-align left
+		line-height 16px
+		margin-top 10px
+		text-align center
+
+		a
+			color rgb(22, 141, 217)
+			font-stretch normal
+			font-style normal
+			font-variant normal
+			font-weight normal
+			text-decoration none
+
+	.credit
+		width 100%
+		font-family $qz-sans-bold
+		color #666
+		text-align left
+
+		a
+			color #666
+			text-decoration none
+
+	#overall-score
+		font-family $qz-sans-bold
+		font-size 24px
+
+	.share-buttons
+		display inline-block
+		width 40px
+		padding 10px
+
+	.share-buttonshover
+		opacity 0.5
+		cursor pointer
