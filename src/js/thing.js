@@ -26,12 +26,17 @@ var d3 = Object.assign({},
 // I got X out of Y! resultShareMessage
 //
 
-var quiz, isCorrect, isIncorrect, meta, correctResponse, incorrectResponse, resultShareMessage;
+var quiz;
+var isCorrect;
+var isIncorrect;
+var meta;
+var correctResponse;
+var incorrectResponse;
+var resultShareMessage;
 var score = 0;
 var answerCount = 0;
 
 function init () {
-// initialize the thing, load data, parse info, etc
 	d3.json("assets/content.json",function(error,data){
 		quiz = data.quiz;
 		isCorrect = data.isCorrect;
@@ -41,12 +46,18 @@ function init () {
 		resultShareMessage = meta.desc;
 
 		d3.selectAll(".quiz .response").on("click",function(){
+			// get question index
+			var index = d3.select(this.parentNode.parentNode).attr("id").substr(1);
+
+			var answered = d3.selectAll(".r"+index+".response-correct");
+			console.log(answered.size());
+
+			if (answered.size()) {
+				return;
+			}
 
 			// count answer in case user sneakily answers out of order
 			answerCount += 1;
-
-			// get question index
-			var index = d3.select(this.parentNode.parentNode).attr("id").substr(1);
 
 			// did user choose wisely?
 			var isChoiceCorrect = d3.select(this).classed("is-correct");
@@ -169,7 +180,7 @@ function init () {
 	});
 
 	fm.resize();
-	
+
 	window.addEventListener("resize", utils.throttle(resize, 250), true);
 
 }
